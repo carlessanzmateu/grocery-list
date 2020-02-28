@@ -1,0 +1,71 @@
+.vertical-card {
+  width: 100%;
+  max-width: 250px;
+  height: 375px;
+  background-color: white;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  border-radius: 4px;
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22)
+  }
+
+  .favorite:before {
+    content: '\2665';
+    font-size: 40px;
+    color: red;
+    position: absolute;
+    right: 15px;
+  }
+
+  .image {
+    width: 100%;
+    height: 60%;
+    background-size: cover;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  .card-information {
+    padding: 10px;
+
+    .title {
+      font-size: 19px;
+    }
+
+    .description {
+      font-size: 17px;
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      width: 100%; 
+      height: 30px; 
+      white-space: nowrap;
+    }
+
+    .buy-info {
+      display: flex;
+      justify-content: space-between;
+
+      .products-left {
+        padding-top: 10px;
+      }
+
+      .add-btn {
+        width: 80px;
+        height: 40px;
+        border-radius: 2px;
+        color: white;
+        background-color: #35a7ff;
+        text-align: center;
+        line-height: 37px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #aaa7ff;
+        }
+      }
+    }
+  }
+}

@@ -6,13 +6,16 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
-import VerticalCard from './common/vertical-cards/verticalCard'
+
+import GroceryListView from './views/grocery-list/groceryList.view';
+import FavoritesView from './views/favorites/favorites.view';
+import CartView from './views/cart/cart.view';
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -24,35 +27,24 @@ function App() {
               <Link to="/users">Users</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/favorites">
+            <FavoritesView />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/cart">
+            <CartView />
           </Route>
           <Route path="/">
-            {/* <Home /> */}
-            <VerticalCard />
+            <GroceryListView />
           </Route>
         </Switch>
       </div>
     </Router>
   );
 }
-function Home() {
-  return <h2>Home</h2>;
-}
 
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 export default App;

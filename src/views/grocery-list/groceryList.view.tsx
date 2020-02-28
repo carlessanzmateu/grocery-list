@@ -3,7 +3,6 @@ import './groceryList.view.scss';
 
 import VerticalCardList from '../../common/vertical-card-list/verticalCardList';
 import HorizontalCardList from '../../common/horizontal-card-list/horizontalCardList';
-import { totalmem } from 'os';
 
 function GroceryListView() {
   return(

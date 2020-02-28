@@ -21,7 +21,7 @@ function HorizontalCardList(props: any) {
       </div>
       <div className={'interaction-zone'}>
         <p className={'summary'}>Total amount: 1000$</p>
-        <a>Checkout</a>
+        <a className={'button'}>Checkout</a>
       </div>
     </div>
   );

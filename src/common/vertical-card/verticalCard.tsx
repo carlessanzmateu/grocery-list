@@ -1,7 +1,7 @@
 import React from 'react';
 import './verticalCard.scss';
 
-function VerticalCard() {
+function VerticalCard(props: any) {
   return(
     <div className={'vertical-card'}>
       <span className={'favorite'}></span>
@@ -16,7 +16,7 @@ function VerticalCard() {
         </p>
         <div className={'buy-info'}>
           <span className={'products-left'}>5 left</span>
-          <a className={'add-btn'}>+ add</a>
+          <a className={'add-btn'} onClick={() => props.onItemSelected('1')}>+ add</a>
         </div>
       </div>
     </div>

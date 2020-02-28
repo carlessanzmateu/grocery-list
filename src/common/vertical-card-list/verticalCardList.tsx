@@ -5,10 +5,9 @@ import VerticalCard from '../vertical-card/verticalCard';
 
 
 function VerticalCardList(props: any) {
-  const mockList = ['a', 'b', 'c', 'd', 'f', 'g', 'h']
-  const listItems = mockList.map(item => {
+  const listItems = props.items.map((item: any) => {
     return(
-      <VerticalCard key={item}/>
+      <VerticalCard key={item} onItemSelected={props.onItemSelected}/>
     );
   })
   return(

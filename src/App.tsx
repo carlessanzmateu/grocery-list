@@ -6,6 +6,7 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
+import VerticalCard from './common/vertical-cards/verticalCard'
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
             <Users />
           </Route>
           <Route path="/">
-            <Home />
+            {/* <Home /> */}
+            <VerticalCard />
           </Route>
         </Switch>
       </div>

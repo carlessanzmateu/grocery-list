@@ -11,6 +11,8 @@ import GroceryListView from './views/grocery-list/groceryList.view';
 import FavoritesView from './views/favorites/favorites.view';
 import CartView from './views/cart/cart.view';
 
+import NavigationRoutes from './shared/constants/navigation.routes';
+
 function App() {
   return (
     <Router>
@@ -32,14 +34,14 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/favorites">
-            <FavoritesView />
+          <Route path={NavigationRoutes.getHomePath()}>
+            <GroceryListView />
           </Route>
-          <Route path="/cart">
+          <Route path={NavigationRoutes.getCartPath()}>
             <CartView />
           </Route>
-          <Route path="/">
-            <GroceryListView />
+          <Route path={NavigationRoutes.getFavoritesPath()}>
+            <FavoritesView />
           </Route>
         </Switch>
       </div>

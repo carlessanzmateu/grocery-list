@@ -7,7 +7,11 @@ import VerticalCard from '../vertical-card/verticalCard';
 function VerticalCardList(props: any) {
   const listItems = props.items.map((item: any) => {
     return(
-      <VerticalCard key={item} onItemSelected={props.onItemSelected}/>
+      <VerticalCard 
+        key={item.id} 
+        onItemSelected={props.onItemSelected}
+        onItemAddedToFavorite={props.onItemAddedToFavorite}
+      />
     );
   })
   return(

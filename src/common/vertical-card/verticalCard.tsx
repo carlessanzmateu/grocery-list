@@ -4,7 +4,10 @@ import './verticalCard.scss';
 function VerticalCard(props: any) {
   return(
     <div className={'vertical-card'}>
-      <span className={'favorite'}></span>
+      <span 
+        className={'favorite'}
+        onClick={() => props.onItemAddedToFavorite('1')}
+      ></span>
       <img 
         className={'image'}
         src={'https://dummyimage.com/400x400/28200e/000&text=Unbranded Metal Chair'} 
@@ -16,7 +19,11 @@ function VerticalCard(props: any) {
         </p>
         <div className={'buy-info'}>
           <span className={'products-left'}>5 left</span>
-          <a className={'add-btn'} onClick={() => props.onItemSelected('1')}>+ add</a>
+          <a
+            className={'add-btn'}
+            onClick={() => props.onItemSelected('1')}>
+              + add
+          </a>
         </div>
       </div>
     </div>

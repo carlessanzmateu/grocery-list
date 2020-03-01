@@ -6,22 +6,22 @@ function VerticalCard(props: any) {
     <div className={'vertical-card'}>
       <span 
         className={'favorite'}
-        onClick={() => props.onItemAddedToFavorite('1')}
+        onClick={() => props.onItemAddedToFavorite(props.item)}
       ></span>
       <img 
         className={'image'}
-        src={'https://dummyimage.com/400x400/28200e/000&text=Unbranded Metal Chair'} 
+        src={props.item.image_url} 
       />
       <div className={'card-information'}>
-        <h3 className={'title'}><strong>Unbranded Metal Chair</strong></h3>
+        <h3 className={'title'}><strong>{ props.item.productName }</strong></h3>
         <p className={'description'}>
-        Porro tempore autem. Sunt molestias qui quod recusandae nemo quia optio. Nostrum aperiam officiis aut reprehenderit illo.
+          { props.item.productDescription }
         </p>
         <div className={'buy-info'}>
-          <span className={'products-left'}>5 left</span>
+          <span className={'products-left'}>{ props.item.stock } left</span>
           <a
             className={'add-btn'}
-            onClick={() => props.onItemSelected('1')}>
+            onClick={() => props.onItemSelected(props.item)}>
               + add
           </a>
         </div>

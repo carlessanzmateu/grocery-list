@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from 'react-redux';
-const store = {}
 import App from './App';
 
 import * as serviceWorker from './serviceWorker';
@@ -12,9 +10,7 @@ import './styles/main.scss';
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <App />,
   rootElement
 );
 

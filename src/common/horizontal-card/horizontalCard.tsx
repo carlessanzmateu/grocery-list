@@ -1,20 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './horizontalCard.scss';
 
-function HorizontalCard() {
+function HorizontalCard(props: any) {
+  const initialQuantity: number = 1;
+  const [quantity, setQuantity] = useState(initialQuantity);
+  let totalPrice = props.item.price * quantity;
+
+  function addItem() {
+    let quantityCopy = quantity;
+    if (quantityCopy >= props.item.stock) {
+      return;
+    }
+
+    ++quantityCopy;
+
+    setQuantity(quantityCopy);
+    props.addItemPrice(props.item.price);
+  }
+
+  function removeItem() {
+    const MINIMUM_QUANTITY = 0;
+    let quantityCopy = quantity;
+
+    if (quantityCopy <= MINIMUM_QUANTITY) {
+      return;
+    }
+
+    quantityCopy -= 1;
+
+    setQuantity(quantityCopy);
+  }
+
   return(
     <div className={'horizontal-card'}>
       <img 
         className={'image'}
-        src={'https://dummyimage.com/400x400/28200e/000&text=Unbranded Metal Chair'} 
+        src={props.item.image_url} 
       />
       <div className={'card-information'}>
-        <h3 className={'title'}><strong>Unbranded Metal Chair</strong></h3>
+        <h3 className={'title'}><strong>{props.item.productName}</strong></h3>
         <div className={'buy-info'}>
-          <span className={'products-left'}>5 left</span>
+          <a onClick={addItem}>+</a>
+          <span className={'products-left'}>{quantity}</span>
+          <span onClick={removeItem}>-</span>
         </div>
       </div>
-      <div className={'amount'}>1135$</div>
+      <div className={'amount'}>{totalPrice}$</div>
     </div>
   );
 }

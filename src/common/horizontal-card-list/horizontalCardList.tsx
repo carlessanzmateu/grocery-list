@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './horizontalCardList.scss';
 
 import HorizontalCard from '../horizontal-card/horizontalCard';
 
 
 function HorizontalCardList(props: any) {
-  const mockList = ['a', 'b', 'c', 'd', 'f', 'g', 'h']
-  const listItems = mockList.map(item => {
+  let initialTotalAmount = 0;
+  const [totalAmount, setTotalAmount] = useState(0);
+  const listItems = props.items.map((item: any) => {
+    initialTotalAmount += item.price;
     return(
-      <HorizontalCard key={item}/>
+      <HorizontalCard
+        key={item.id}
+        item={item}
+        addItemPrice={addToTotalCheckout}
+      />
     );
-  })
+  });
+
+  function addToTotalCheckout(amount: any) {
+    const currentAmount = totalAmount;
+    
+    setTotalAmount(currentAmount + amount);
+  }
+
   return(
     <div className={'horizontal-card-list'}>
       <header className={'header'}>
@@ -20,7 +33,7 @@ function HorizontalCardList(props: any) {
         { listItems }
       </div>
       <div className={'interaction-zone'}>
-        <p className={'summary'}>Total amount: 1000$</p>
+        <p className={'summary'}>Total amount: {totalAmount}$</p>
         <a className={'button'}>Checkout</a>
       </div>
     </div>

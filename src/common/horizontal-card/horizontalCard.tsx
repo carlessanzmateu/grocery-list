@@ -2,51 +2,29 @@ import React, { useState } from 'react';
 import './horizontalCard.scss';
 
 function HorizontalCard(props: any) {
-  const initialQuantity: number = 1;
-  const [quantity, setQuantity] = useState(initialQuantity);
-  let totalPrice = props.item.price * quantity;
-
   function addItem() {
-    // let quantityCopy = quantity;
-    // if (quantityCopy >= props.item.stock) {
-    //   return;
-    // }
-
-    // ++quantityCopy;
-
-    // setQuantity(quantityCopy);
-    props.addItemPrice(props.item.price);
+    props.addItem(props.item);
   }
 
   function removeItem() {
-    // const MINIMUM_QUANTITY = 0;
-    // let quantityCopy = quantity;
-
-    // if (quantityCopy <= MINIMUM_QUANTITY) {
-    //   return;
-    // }
-
-    // quantityCopy -= 1;
-
-    // setQuantity(quantityCopy);
-    props.removeItemPrice(props.item.price);
+    props.removeItem(props.item);
   }
 
   return(
     <div className={'horizontal-card'}>
       <img 
         className={'image'}
-        src={props.item.image_url} 
+        src={props.item.getImageUrl()} 
       />
       <div className={'card-information'}>
-        <h3 className={'title'}><strong>{props.item.productName}</strong></h3>
+        <h3 className={'title'}><strong>{props.item.getProductName()}</strong></h3>
         <div className={'buy-info'}>
           <a onClick={addItem}>+</a>
-          <span className={'products-left'}>{quantity}</span>
+          <span className={'products-left'}>{props.item.getQuantitySelected()}</span>
           <span onClick={removeItem}>-</span>
         </div>
       </div>
-      <div className={'amount'}>{totalPrice}$</div>
+      <div className={'amount'}>{props.item.getQuantitySelected() * props.item.getPrice()}$</div>
     </div>
   );
 }

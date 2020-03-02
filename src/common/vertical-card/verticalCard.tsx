@@ -15,16 +15,16 @@ function VerticalCard(props: any) {
       ></span>
       <img 
         className={'image'}
-        alt={props.item.image_url}
-        src={props.item.image_url} 
+        alt={props.item.getImageUrl()}
+        src={props.item.getImageUrl()} 
       />
       <div className={'card-information'}>
-        <h3 className={'title'}><strong>{ props.item.productName }</strong></h3>
+        <h3 className={'title'}><strong>{ props.item.getProductName() }</strong></h3>
         <p className={'description'}>
-          { props.item.productDescription }
+          { props.item.getProductDescription() }
         </p>
         <div className={'buy-info'}>
-          <span className={'products-left'}>{ props.item.stock } left</span>
+          <span className={'products-left'}>{ props.item.getStock() } left</span>
           <a
             className={'add-btn'}
             onClick={() => props.onItemSelected(props.item)}>

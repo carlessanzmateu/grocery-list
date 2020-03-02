@@ -8,7 +8,7 @@ function VerticalCardList(props: any) {
   const listItems = props.items.map((item: any) => {
     return(
       <VerticalCard 
-        key={item.id}
+        key={item.getId()}
         item={item}
         onItemSelected={props.onItemSelected}
         onItemAddedToFavorite={props.onItemAddedToFavorite}

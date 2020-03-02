@@ -18,14 +18,25 @@ function GroceryListView(props: any) {
     setList(groceryList.data);
   }
 
+  async function onItemAddedToFavorite(item: any) {
+    let url = ApiRoutes.getGroceryListURL();
+    url = url + '/' + item.id
+    if (item.favorite === '0') {
+      item.favorite = '1';
+    } else {
+      item.favorite = '0';
+    }
+    await axios.patch(url, {
+      ...item
+    });
+
+    await fetchGroceryList();
+  }
+
   function onItemSelected(item: any) {
     let checkoutListCopy: any = checkoutList.slice();
     checkoutListCopy.push(item)
     setCheckoutList(checkoutListCopy);
-  }
-
-  function onItemAddedToFavorite(value: any) {
-    console.log('favorite', value)
   }
 
   useEffect(() => {
@@ -42,7 +53,7 @@ function GroceryListView(props: any) {
           onItemAddedToFavorite={onItemAddedToFavorite}
         />
       </div>
-      <div>
+      <div className={'cart'}>
         <HorizontalCardList 
           title={'Cart'}
           items={checkoutList}

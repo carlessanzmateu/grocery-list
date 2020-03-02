@@ -15,6 +15,7 @@ function VerticalCardList(props: any) {
       />
     );
   })
+
   return(
     <div className={'vertical-card-list'}>
       <header className={'header'}>

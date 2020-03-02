@@ -5,24 +5,35 @@ import HorizontalCard from '../horizontal-card/horizontalCard';
 
 
 function HorizontalCardList(props: any) {
-  let initialTotalAmount = 0;
   const [totalAmount, setTotalAmount] = useState(0);
   const listItems = props.items.map((item: any) => {
-    initialTotalAmount += item.price;
     return(
       <HorizontalCard
         key={item.id}
         item={item}
         addItemPrice={addToTotalCheckout}
+        removeItemPrice={removeToTotalCheckout}
       />
     );
   });
 
   function addToTotalCheckout(amount: any) {
-    const currentAmount = totalAmount;
+    // const currentAmount = totalAmount;
     
-    setTotalAmount(currentAmount + amount);
+    setTotalAmount(totalAmount + amount);
   }
+
+  function removeToTotalCheckout(amount: any) {
+    setTotalAmount(totalAmount - amount);
+  }
+
+  useEffect(() => {
+    let newTotalAmount = 0;
+    props.items.forEach((item: any) => {
+      newTotalAmount += item.price
+    });
+    setTotalAmount(newTotalAmount)
+  }, [props.items]);
 
   return(
     <div className={'horizontal-card-list'}>

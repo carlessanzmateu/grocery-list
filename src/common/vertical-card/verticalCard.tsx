@@ -2,14 +2,20 @@ import React from 'react';
 import './verticalCard.scss';
 
 function VerticalCard(props: any) {
+  function getFavoriteCssClasses(): any {
+    const isFavorite = props.item.favorite === '1'
+
+    return isFavorite ? 'favorite filled' : 'favorite';
+  }
   return(
     <div className={'vertical-card'}>
       <span 
-        className={'favorite'}
+        className={getFavoriteCssClasses()}
         onClick={() => props.onItemAddedToFavorite(props.item)}
       ></span>
       <img 
         className={'image'}
+        alt={props.item.image_url}
         src={props.item.image_url} 
       />
       <div className={'card-information'}>

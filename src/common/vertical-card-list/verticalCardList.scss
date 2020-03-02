@@ -20,4 +20,10 @@
       margin-bottom: 20px;
     }
   }
+
+  @media (max-width: 425px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
 }

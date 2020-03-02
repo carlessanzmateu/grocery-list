@@ -14,11 +14,16 @@
 
   .favorite:before {
     content: '\2665';
+    color: white;
     font-size: 40px;
-    color: red;
     position: absolute;
     right: 15px;
     cursor: pointer;
+
+  }
+
+  .filled:before {
+    color: red;
   }
 
   .image {

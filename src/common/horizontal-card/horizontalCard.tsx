@@ -7,28 +7,29 @@ function HorizontalCard(props: any) {
   let totalPrice = props.item.price * quantity;
 
   function addItem() {
-    let quantityCopy = quantity;
-    if (quantityCopy >= props.item.stock) {
-      return;
-    }
+    // let quantityCopy = quantity;
+    // if (quantityCopy >= props.item.stock) {
+    //   return;
+    // }
 
-    ++quantityCopy;
+    // ++quantityCopy;
 
-    setQuantity(quantityCopy);
+    // setQuantity(quantityCopy);
     props.addItemPrice(props.item.price);
   }
 
   function removeItem() {
-    const MINIMUM_QUANTITY = 0;
-    let quantityCopy = quantity;
+    // const MINIMUM_QUANTITY = 0;
+    // let quantityCopy = quantity;
 
-    if (quantityCopy <= MINIMUM_QUANTITY) {
-      return;
-    }
+    // if (quantityCopy <= MINIMUM_QUANTITY) {
+    //   return;
+    // }
 
-    quantityCopy -= 1;
+    // quantityCopy -= 1;
 
-    setQuantity(quantityCopy);
+    // setQuantity(quantityCopy);
+    props.removeItemPrice(props.item.price);
   }
 
   return(

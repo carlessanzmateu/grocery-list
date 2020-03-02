@@ -19,9 +19,9 @@ function HorizontalCard(props: any) {
       <div className={'card-information'}>
         <h3 className={'title'}><strong>{props.item.getProductName()}</strong></h3>
         <div className={'buy-info'}>
-          <a onClick={addItem}>+</a>
+          <a className={'add-item'} onClick={addItem}>+</a>
           <span className={'products-left'}>{props.item.getQuantitySelected()}</span>
-          <span onClick={removeItem}>-</span>
+          <a className={'remove-item'} onClick={removeItem}>-</a>
         </div>
       </div>
       <div className={'amount'}>{props.item.getQuantitySelected() * props.item.getPrice()}$</div>

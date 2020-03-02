@@ -18,6 +18,21 @@
     .title {
       font-size: 16px;
     }
+
+    .buy-info {
+      .add-item,
+      .remove-item {
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .add-item {
+        margin-right: 10px;
+      }
+      .remove-item {
+        margin-left: 10px;
+      }
+    }
   }
   .amount {
     display: flex;

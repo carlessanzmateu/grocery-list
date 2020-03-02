@@ -12,8 +12,6 @@ import Product from '../../shared/models/product';
 
 function GroceryListView(props: any) {
   const [list, setList] = useState([]);
-  const [checkoutList, setCheckoutList] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
 
   async function fetchGroceryList() {
     const url = ApiRoutes.getGroceryListURL();
@@ -51,48 +49,6 @@ function GroceryListView(props: any) {
     })
   }
 
-  function onItemSelected(item: any) {
-    let checkoutListCopy: any = checkoutList.slice();
-    checkoutListCopy.push(item)
-    setCheckoutList(checkoutListCopy);
-  }
-
-  function addItem(item: any) {
-    const productStock = item.getStock();
-    const quantitySelected = item.getQuantitySelected();
-
-    if (quantitySelected >= productStock) {
-      return item;
-    }
-
-    item.setQuantitySelected(quantitySelected + 1);
-    
-    let checkoutListCopy: any = checkoutList.slice();
-
-    const itemToUpdateIndex = checkoutListCopy.findIndex((checkoutItem: any) => checkoutItem.getId() === item.getId());
-    checkoutListCopy[itemToUpdateIndex] = item;
-    setCheckoutList(checkoutListCopy);
-  }
-
-  function removeItem(item: Product) {
-    const MINIMUN_QUANTITY = 0;
-    const quantitySelected = item.getQuantitySelected();
-
-    let checkoutListCopy: any = checkoutList.slice();
-    const itemToUpdateIndex = checkoutListCopy.findIndex((checkoutItem: any) => checkoutItem.getId() === item.getId());
-
-    item.setQuantitySelected(quantitySelected - 1);
-
-    if (item.getQuantitySelected() <= MINIMUN_QUANTITY) {
-      checkoutListCopy.splice(itemToUpdateIndex, 1);
-      setCheckoutList(checkoutListCopy);
-      return;
-    }
-
-    checkoutListCopy[itemToUpdateIndex] = item;
-    setCheckoutList(checkoutListCopy);
-  }
-
   useEffect(() => {
     fetchGroceryList();
   }, []);
@@ -103,16 +59,16 @@ function GroceryListView(props: any) {
         <VerticalCardList 
           items={list} 
           title={'List'} 
-          onItemSelected={onItemSelected}
+          onItemSelected={props.onItemSelected}
           onItemAddedToFavorite={onItemAddedToFavorite}
         />
       </div>
       <div className={'cart'}>
         <HorizontalCardList 
           title={'Cart'}
-          items={checkoutList}
-          addItem={addItem}
-          removeItem={removeItem}
+          items={props.checkoutList}
+          addItem={props.addItem}
+          removeItem={props.removeItem}
         />
       </div>
     </section>

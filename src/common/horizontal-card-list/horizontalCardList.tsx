@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './horizontalCardList.scss';
 
 import HorizontalCard from '../horizontal-card/horizontalCard';
 
 
 function HorizontalCardList(props: any) {
-  // const [totalAmount, setTotalAmount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0)
   const listItems = props.items.map((item: any) => {
     return(
       <HorizontalCard
@@ -17,21 +17,19 @@ function HorizontalCardList(props: any) {
     );
   });
 
-  // function addToTotalCheckout(amount: any) {    
-  //   setTotalAmount(totalAmount + amount);
-  // }
+  function getTotalAmount() {
+    let totalAmount = 0;
 
-  // function removeToTotalCheckout(amount: any) {
-  //   setTotalAmount(totalAmount - amount);
-  // }
+    props.items.forEach((item: any) => {
+      return totalAmount += item.getPrice();
+    })
+
+    setTotalAmount(totalAmount);
+  }
 
   // useEffect(() => {
-  //   let newTotalAmount = 0;
-  //   props.items.forEach((item: any) => {
-  //     newTotalAmount += item.getPrice();
-  //   });
-  //   setTotalAmount(newTotalAmount)
-  // }, [props.items]);
+  //   getTotalAmount();
+  // }, [props])
 
   return(
     <div className={'horizontal-card-list'}>
@@ -42,7 +40,7 @@ function HorizontalCardList(props: any) {
         { listItems }
       </div>
       <div className={'interaction-zone'}>
-        {/* <p className={'summary'}>Total amount: {totalAmount}$</p> */}
+        <p className={'summary'}>Total amount: {totalAmount}$</p>
         <a className={'button'}>Checkout</a>
       </div>
     </div>

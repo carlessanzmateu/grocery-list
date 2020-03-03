@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import CartContext from '../../shared/contexts/CartContext';
 
 import './groceryList.view.scss';
 
@@ -12,7 +13,6 @@ import Product from '../../shared/models/product';
 
 function GroceryListView(props: any) {
   const [list, setList] = useState([]);
-
   async function fetchGroceryList() {
     const url = ApiRoutes.getGroceryListURL();
     const groceryList: any = await axios.get(url);
@@ -21,11 +21,11 @@ function GroceryListView(props: any) {
 
   async function onItemAddedToFavorite(item: any) {
     let url = ApiRoutes.getGroceryListURL();
-    url = url + '/' + item.id
-    if (item.favorite === '0') {
-      item.favorite = '1';
+    url = url + '/' + item.getId();
+    if (item.getFavorite() === '0') {
+      item.setFavorite('1');
     } else {
-      item.favorite = '0';
+      item.setFavorite('0');
     }
     await axios.patch(url, {
       ...item
@@ -53,6 +53,8 @@ function GroceryListView(props: any) {
     fetchGroceryList();
   }, []);
 
+  // console.log(useContext(CartContext))
+
   return(
     <section className={'grocery-list-view'}>
       <div className={'list'}>
@@ -66,7 +68,7 @@ function GroceryListView(props: any) {
       <div className={'cart'}>
         <HorizontalCardList 
           title={'Cart'}
-          items={props.checkoutList}
+          items={props.items}
           addItem={props.addItem}
           removeItem={props.removeItem}
         />

@@ -1,29 +1,18 @@
-import React, { useState, useEffect }  from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
+import React, { useState }  from 'react';
+// import { CartProvider } from './shared/contexts/CartContext';
 import './App.css';
 
-import GroceryListView from './views/grocery-list/groceryList.view';
-import FavoritesView from './views/favorites/favorites.view';
-import CartView from './views/cart/cart.view';
-
-import NavigationRoutes from './shared/constants/navigation.routes';
+import AppRouter from './common/app-router/appRouter';
 
 import Product from './shared/models/product';
 
-function App() {
+function App(props: any) {
   const [checkoutList, setCheckoutList] = useState([]);
 
   function onItemSelected(item: any) {
-    console.log(item)
     let checkoutListCopy: any = checkoutList.slice();
     checkoutListCopy.push(item)
     setCheckoutList(checkoutListCopy);
-    console.log(checkoutList);
   }
 
   function addItem(item: any) {
@@ -61,44 +50,16 @@ function App() {
     checkoutListCopy[itemToUpdateIndex] = item;
     setCheckoutList(checkoutListCopy);
   }
-
+  console.log(props)
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/favorites">Favorites</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route exact path={NavigationRoutes.getHomePath()}>
-            <GroceryListView
-              checkoutList={checkoutList}
-              onItemSelected={onItemSelected}
-              addItem={addItem}
-              removeItem={removeItem}
-            />
-          </Route>
-          <Route path={NavigationRoutes.getCartPath()}>
-            <CartView
-              checkoutList={checkoutList}
-              onItemSelected={onItemSelected}
-              addItem={addItem}
-              removeItem={removeItem}
-            />
-          </Route>
-          <Route exact path={NavigationRoutes.getFavoritesPath()}>
-            <FavoritesView />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    // <CartProvider value={checkoutList}>
+      <AppRouter
+        items={checkoutList}
+        onItemSelected={onItemSelected}
+        addItem={addItem}
+        removeItem={removeItem}
+      />
+    // </CartProvider>
   );
 }
 

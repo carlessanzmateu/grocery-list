@@ -56,6 +56,10 @@ export default class Product {
     return this.$favorite;
   }
 
+  setFavorite(favorite: string) {
+    this.$favorite = favorite;
+  }
+
   getQuantitySelected(): number {
     return this.$quantitySelected;
   }

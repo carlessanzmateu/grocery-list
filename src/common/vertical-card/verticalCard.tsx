@@ -3,7 +3,7 @@ import './verticalCard.scss';
 
 function VerticalCard(props: any) {
   function getFavoriteCssClasses(): any {
-    const isFavorite = props.item.favorite === '1'
+    const isFavorite = props.item.getFavorite() === '1'
 
     return isFavorite ? 'favorite filled' : 'favorite';
   }

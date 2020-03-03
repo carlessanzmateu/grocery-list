@@ -10,9 +10,11 @@ import axios from 'axios';
 import ApiRoutes from '../../shared/constants/api.routes';
 
 import Product from '../../shared/models/product';
+import ProductAsBack from '../../shared/models/productAsBack';
 
 function GroceryListView(props: any) {
   const [list, setList] = useState([]);
+
   async function fetchGroceryList() {
     const url = ApiRoutes.getGroceryListURL();
     const groceryList: any = await axios.get(url);
@@ -27,8 +29,19 @@ function GroceryListView(props: any) {
     } else {
       item.setFavorite('0');
     }
+    const productAsBack = new ProductAsBack(
+      item.getId(),
+      item.getImageUrl(),
+      item.getStock(),
+      item.getProductName(),
+      item.getPrice(),
+      item.getProductDescription(),
+      item.getFavorite(),
+      item.getQuantitySelected()
+    )
+    productAsBack.setQuantitySelected(0);
     await axios.patch(url, {
-      ...item
+      ...productAsBack.buildDTO()
     });
 
     await fetchGroceryList();
@@ -52,8 +65,6 @@ function GroceryListView(props: any) {
   useEffect(() => {
     fetchGroceryList();
   }, []);
-
-  // console.log(useContext(CartContext))
 
   return(
     <section className={'grocery-list-view'}>

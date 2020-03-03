@@ -1,5 +1,4 @@
 import React, { useState }  from 'react';
-// import { CartProvider } from './shared/contexts/CartContext';
 import './App.css';
 
 import AppRouter from './common/app-router/appRouter';
@@ -50,16 +49,14 @@ function App(props: any) {
     checkoutListCopy[itemToUpdateIndex] = item;
     setCheckoutList(checkoutListCopy);
   }
-  console.log(props)
+
   return (
-    // <CartProvider value={checkoutList}>
-      <AppRouter
-        items={checkoutList}
-        onItemSelected={onItemSelected}
-        addItem={addItem}
-        removeItem={removeItem}
-      />
-    // </CartProvider>
+    <AppRouter
+      items={checkoutList}
+      onItemSelected={onItemSelected}
+      addItem={addItem}
+      removeItem={removeItem}
+    />
   );
 }
 

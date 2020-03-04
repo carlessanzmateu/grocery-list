@@ -1,3 +1,21 @@
+## FEATURES
+
+* list a large grocery list
+* add list elements to favorites list
+* show favorites in a view
+* add list elements to a cart
+* add or remove elements from cart
+* show total checkout price
+* realize a payment and update stock items
+* responsive display for most common sreen sizes
+* add basic test in some components as test suite example
+
+## IMPROVEMENTS
+
+* add redux in order to handle cart status and can share it through multiple views or shibling components
+
+### INSTALLATION
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

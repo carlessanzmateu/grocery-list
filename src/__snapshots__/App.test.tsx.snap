@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `
+<div>
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/favorites"
+          onClick={[Function]}
+        >
+          Favorites
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <section
+    className="grocery-list-view"
+  >
+    <div
+      className="list"
+    >
+      <div
+        className="vertical-card-list"
+      >
+        <header
+          className="header"
+        >
+          List
+        </header>
+        <div
+          className="cart-summary"
+          onClick={[Function]}
+        >
+          <strong>
+            See my cart
+             (
+            0
+            )
+          </strong>
+        </div>
+        <div
+          className="content-wrapper"
+        />
+      </div>
+    </div>
+    <div
+      className="cart"
+    >
+      <div
+        className="horizontal-card-list"
+      >
+        <div
+          className="summary-zone"
+        >
+          <header
+            className="header"
+          >
+            Cart
+          </header>
+          <div
+            className="cart-summary"
+            onClick={[Function]}
+          >
+            <strong>
+              Go back
+               (
+              0
+              )
+            </strong>
+          </div>
+          <div
+            className="content-wrapper"
+          />
+        </div>
+        <div
+          className="interaction-zone"
+        >
+          <p
+            className="summary"
+          >
+            Total amount: 
+            0
+            $
+          </p>
+          <a
+            className="button"
+            onClick={[Function]}
+          >
+            <strong>
+              Checkout
+            </strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import VerticalCard from './verticalCard';
 
@@ -35,24 +34,6 @@ describe('VerticalCard', () => {
     );
 
     let tree = component.toJSON();
-    console.log(component)
     expect(tree).toMatchSnapshot();
   })
-
-  // test('should have getFavoriteCssClasses method', () => {
-  //   function onItemSelected() {}
-  //   function onItemAddedToFavorite() {}
-  
-  //   const componentRender = renderer.create(
-  //     <VerticalCard
-  //       key={ProductMock.getId()}
-  //       item={ProductMock}
-  //       onItemSelected={onItemSelected}
-  //       onItemAddedToFavorite={onItemAddedToFavorite}
-  //     />
-  //   );
-
-  //   console.log(componentRender);
-  //   expect(VerticalCard.getFavoriteCssClasses).toBeDefined();
-  // })
 });

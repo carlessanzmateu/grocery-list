@@ -19,10 +19,10 @@ function AppRouter(props: any) {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to={NavigationRoutes.getHomePath()}>Home</Link>
             </li>
             <li>
-              <Link to="/favorites">Favorites</Link>
+              <Link to={NavigationRoutes.getFavoritesPath()}>Favorites</Link>
             </li>
           </ul>
         </nav>

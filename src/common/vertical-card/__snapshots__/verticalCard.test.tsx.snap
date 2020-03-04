@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VerticalCard should match snapshot 1`] = `
+<div
+  className="vertical-card"
+>
+  <span
+    className="favorite"
+    onClick={[Function]}
+  />
+  <img
+    alt="someImageUrl"
+    className="image"
+    src="someImageUrl"
+  />
+  <div
+    className="card-information"
+  >
+    <h3
+      className="title"
+    >
+      <strong>
+        someProductName
+      </strong>
+    </h3>
+    <p
+      className="description"
+    >
+      someProductDescription
+    </p>
+    <div
+      className="buy-info"
+    >
+      <span
+        className="products-left"
+      >
+        10
+         left
+      </span>
+      <a
+        className="add-btn"
+        onClick={[Function]}
+      >
+        + add
+      </a>
+    </div>
+  </div>
+</div>
+`;

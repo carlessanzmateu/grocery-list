@@ -7,20 +7,26 @@
   justify-content: space-between;
   padding: 0 10px;
 
-  .header {
-    width: 100%;
-    height: 70px;
-    background-color: white;
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 50px;
-    line-height: 70px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
-  }
+  .summary-zone {
+    height: 100%;
 
-  .content-wrapper {
-    .horizontal-card {
-      margin-bottom: 10px;
+    .header {
+      width: 100%;
+      height: 70px;
+      background-color: white;
+      font-size: 50px;
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 70px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+    }
+  
+    .content-wrapper {
+      overflow: scroll;
+  
+      .horizontal-card {
+        margin-bottom: 10px;
+      }
     }
   }
 

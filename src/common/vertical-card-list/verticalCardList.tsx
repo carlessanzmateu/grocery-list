@@ -1,6 +1,7 @@
 import React from 'react';
 import './verticalCardList.scss';
 
+import CartSummary from '../cart-summary/cartSummary';
 import VerticalCard from '../vertical-card/verticalCard';
 
 
@@ -21,6 +22,7 @@ function VerticalCardList(props: any) {
       <header className={'header'}>
         { props.title }
       </header>
+      <CartSummary text={props.goToCartText} goToCart={props.goToCart} itemsOnCart={props.itemsOnCart}/>
       <div className={'content-wrapper'}>
         { listItems }
       </div>

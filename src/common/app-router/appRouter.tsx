@@ -29,20 +29,10 @@ function AppRouter(props: any) {
         
           <Switch>
             <Route exact path={NavigationRoutes.getHomePath()}>
-              <GroceryListView
-                items={props.items}
-                onItemSelected={props.onItemSelected}
-                addItem={props.addItem}
-                removeItem={props.removeItem}
-              />
+              <GroceryListView />
             </Route>
             <Route path={NavigationRoutes.getCartPath()}>
-              <CartView
-                items={props.items}
-                onItemSelected={props.onItemSelected}
-                addItem={props.addItem}
-                removeItem={props.removeItem}
-              />
+              <CartView />
             </Route>
             <Route exact path={NavigationRoutes.getFavoritesPath()}>
               <FavoritesView />

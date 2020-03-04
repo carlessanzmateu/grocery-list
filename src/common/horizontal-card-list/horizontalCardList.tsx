@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import './horizontalCardList.scss';
 
+import CartSummary from '../cart-summary/cartSummary';
 import HorizontalCard from '../horizontal-card/horizontalCard';
 
 
@@ -33,15 +34,18 @@ function HorizontalCardList(props: any) {
 
   return(
     <div className={'horizontal-card-list'}>
-      <header className={'header'}>
-        { props.title }
-      </header>
-      <div className={'content-wrapper'}>
-        { listItems }
+      <div className={'summary-zone'}>
+        <header className={'header'}>
+          { props.title }
+        </header>
+        <CartSummary text={props.goToCartText} goToCart={props.goToCart} itemsOnCart={props.itemsOnCart}/>
+        <div className={'content-wrapper'}>
+          { listItems }
+        </div>
       </div>
       <div className={'interaction-zone'}>
-        <p className={'summary'}>Total amount: {totalAmount}$</p>
-        <a className={'button'}><strong>Checkout</strong></a>
+        <p className={'summary'}>Total amount: {props.checkoutTotalPrice}$</p>
+        <a className={'button'} onClick={() => props.onItemsCheckout()}><strong>Checkout</strong></a>
       </div>
     </div>
   );

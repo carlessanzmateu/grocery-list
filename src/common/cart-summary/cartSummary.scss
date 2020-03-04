@@ -1,0 +1,10 @@
+.cart-summary {
+  text-align: center;
+  padding-bottom: 20px;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 425px) {
+    display: block;
+  }
+}

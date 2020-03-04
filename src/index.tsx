@@ -5,7 +5,6 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
-import './index.css';
 import './styles/main.scss';
 
 const rootElement = document.getElementById('root')

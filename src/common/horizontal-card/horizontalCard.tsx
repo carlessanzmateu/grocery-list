@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './horizontalCard.scss';
 
 function HorizontalCard(props: any) {

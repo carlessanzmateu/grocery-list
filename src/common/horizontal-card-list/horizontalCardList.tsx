@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React from 'react';
 import './horizontalCardList.scss';
 
 import CartSummary from '../cart-summary/cartSummary';
@@ -6,7 +6,6 @@ import HorizontalCard from '../horizontal-card/horizontalCard';
 
 
 function HorizontalCardList(props: any) {
-  const [totalAmount, setTotalAmount] = useState(0)
   const listItems = props.items.map((item: any) => {
     return(
       <HorizontalCard
@@ -17,20 +16,6 @@ function HorizontalCardList(props: any) {
       />
     );
   });
-
-  // function getTotalAmount() {
-  //   let totalAmount = 0;
-
-  //   props.items.forEach((item: any) => {
-  //     return totalAmount += item.getPrice();
-  //   })
-
-  //   setTotalAmount(totalAmount);
-  // }
-
-  // useEffect(() => {
-  //   getTotalAmount();
-  // }, [items, getTotalAmount])
 
   return(
     <div className={'horizontal-card-list'}>
